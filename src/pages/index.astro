@@ -1,0 +1,81 @@
+---
+const base = import.meta.env.BASE_URL;
+const styles = [
+  { href: `${base}boho`, label: "Boho", desc: "Terracota, salvia y tipografía suelta" },
+  { href: `${base}clasico`, label: "Clásico elegante", desc: "Marfil, azul marino y dorado" },
+  { href: `${base}minimalista`, label: "Minimalista", desc: "Blanco y negro, mucho espacio" },
+  { href: `${base}floral`, label: "Floral", desc: "Pastel rosa/verde con acentos florales" },
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitación de boda — Estilos de ejemplo</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f4f4f4;
+        color: #222;
+        margin: 0;
+        padding: 3rem 1.5rem;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+      }
+      p.lead {
+        color: #666;
+        margin-top: 0;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      li a {
+        display: block;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1.25rem 1.5rem;
+        text-decoration: none;
+        color: inherit;
+      }
+      li a:hover {
+        border-color: #999;
+      }
+      li strong {
+        display: block;
+        font-size: 1.1rem;
+      }
+      li span {
+        color: #666;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Invitación de boda — datos de prueba</h1>
+      <p class="lead">Elige un estilo para verlo con contenido de ejemplo (Sofía &amp; Mateo).</p>
+      <ul>
+        {styles.map((s) => (
+          <li>
+            <a href={s.href}>
+              <strong>{s.label}</strong>
+              <span>{s.desc}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </main>
+  </body>
+</html>

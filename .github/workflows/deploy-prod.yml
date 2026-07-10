@@ -1,0 +1,49 @@
+name: Deploy Prod
+
+run-name: "[PROD] deploy | ${{ github.ref_name }} | @${{ github.actor }}"
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: "[PROD] deploy"
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: "clone: repository"
+        uses: actions/checkout@v4
+
+      - name: "tooling: node v22"
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: "dependencies: install"
+        run: npm ci
+
+      - name: "astro: build"
+        run: npm run build
+
+      - name: "pages: upload artifact"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+      - name: "pages: deploy"
+        id: deployment
+        uses: actions/deploy-pages@v4

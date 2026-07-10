@@ -1,0 +1,191 @@
+/* Reset + estructura compartida. Cada tema sobreescribe las variables --inv-*. */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--inv-bg, #fff);
+  color: var(--inv-text, #222);
+  font-family: var(--inv-body-font, system-ui, sans-serif);
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+
+.invitation {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--inv-page-padding, 2.5rem 1.5rem 5rem);
+}
+
+.hero {
+  text-align: center;
+  padding: var(--inv-hero-padding, 4rem 1rem 3rem);
+}
+
+.hero__eyebrow {
+  font-family: var(--inv-accent-font, var(--inv-body-font));
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--inv-muted, #777);
+  margin: 0 0 1rem;
+}
+
+.hero__names {
+  font-family: var(--inv-display-font, serif);
+  font-size: var(--inv-names-size, 3rem);
+  color: var(--inv-heading, var(--inv-text));
+  margin: 0;
+  line-height: 1.15;
+}
+
+.hero__amp {
+  display: block;
+  font-size: 0.5em;
+  color: var(--inv-accent, var(--inv-heading));
+  margin: 0.25em 0;
+}
+
+.hero__date {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--inv-line, #ddd);
+  width: var(--inv-divider-width, 60px);
+  margin: var(--inv-divider-margin, 2.5rem auto);
+}
+
+.section {
+  margin: var(--inv-section-margin, 3rem 0);
+  text-align: center;
+}
+
+.section__title {
+  font-family: var(--inv-display-font, serif);
+  color: var(--inv-heading, var(--inv-text));
+  font-size: 1.5rem;
+  margin: 0 0 1.5rem;
+}
+
+.schedule {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.schedule__item time {
+  display: block;
+  font-family: var(--inv-accent-font, var(--inv-body-font));
+  font-weight: 600;
+  color: var(--inv-accent, var(--inv-heading));
+}
+
+.schedule__item strong {
+  display: block;
+  font-size: 1.05rem;
+}
+
+.schedule__item span {
+  color: var(--inv-muted, #777);
+  font-size: 0.9rem;
+}
+
+.venues {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.venue {
+  border: 1px solid var(--inv-line, #ddd);
+  border-radius: var(--inv-radius, 4px);
+  padding: 1.25rem;
+}
+
+.venue h3 {
+  margin: 0 0 0.25rem;
+  font-family: var(--inv-display-font, serif);
+}
+
+.venue a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  color: var(--inv-accent, var(--inv-heading));
+}
+
+.pill {
+  display: inline-block;
+  border: 1px solid var(--inv-accent, #999);
+  color: var(--inv-accent, #999);
+  border-radius: 999px;
+  padding: 0.4rem 1.25rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.gifts p {
+  color: var(--inv-muted, #555);
+  max-width: 42ch;
+  margin: 0 auto 1rem;
+}
+
+.rsvp {
+  background: var(--inv-panel, #f7f7f7);
+  border-radius: var(--inv-radius, 4px);
+  padding: 2rem 1.5rem;
+}
+
+.rsvp form {
+  display: grid;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 1.5rem auto 0;
+  text-align: left;
+}
+
+.rsvp label {
+  font-size: 0.85rem;
+  color: var(--inv-muted, #555);
+  display: grid;
+  gap: 0.35rem;
+}
+
+.rsvp input,
+.rsvp select,
+.rsvp textarea {
+  font: inherit;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--inv-line, #ccc);
+  border-radius: var(--inv-radius, 4px);
+  background: var(--inv-bg, #fff);
+  color: var(--inv-text, #222);
+}
+
+.rsvp button {
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: var(--inv-radius, 4px);
+  background: var(--inv-accent, #333);
+  color: var(--inv-accent-contrast, #fff);
+  cursor: pointer;
+}
+
+.footer-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--inv-muted, #999);
+  margin-top: 3rem;
+}

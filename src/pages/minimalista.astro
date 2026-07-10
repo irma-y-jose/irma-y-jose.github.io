@@ -1,0 +1,80 @@
+---
+import Invitation from "../components/Invitation.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sofía &amp; Mateo — Minimalista</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --inv-bg: #ffffff;
+        --inv-text: #111111;
+        --inv-heading: #111111;
+        --inv-accent: #b33a3a;
+        --inv-accent-contrast: #ffffff;
+        --inv-muted: #777777;
+        --inv-line: #e5e5e5;
+        --inv-panel: #fafafa;
+        --inv-radius: 0px;
+        --inv-body-font: "Inter", sans-serif;
+        --inv-display-font: "Inter", sans-serif;
+        --inv-accent-font: "Inter", sans-serif;
+        --inv-names-size: 2.75rem;
+        --inv-page-padding: 5rem 1.5rem 6rem;
+        --inv-hero-padding: 2rem 1rem 2rem;
+        --inv-section-margin: 4rem 0;
+        --inv-divider-margin: 3.5rem auto;
+        --inv-divider-width: 32px;
+      }
+
+      :global(.hero__names) {
+        font-weight: 300;
+        letter-spacing: 0.02em;
+      }
+
+      :global(.hero__eyebrow) {
+        font-weight: 500;
+        letter-spacing: 0.35em;
+      }
+
+      :global(.section__title) {
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+      }
+
+      :global(.schedule__item strong),
+      :global(.venue h3) {
+        font-weight: 500;
+      }
+
+      :global(.venue) {
+        border-radius: 0;
+      }
+
+      :global(.pill) {
+        border-radius: 0;
+      }
+
+      :global(.rsvp) {
+        border-radius: 0;
+        background: transparent;
+        border-top: 1px solid var(--inv-line);
+        border-bottom: 1px solid var(--inv-line);
+        padding: 3rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <Invitation eyebrow="Nos casamos" />
+  </body>
+</html>

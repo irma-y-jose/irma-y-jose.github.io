@@ -1,0 +1,65 @@
+---
+import Invitation from "../components/Invitation.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sofía &amp; Mateo — Clásico elegante</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=EB+Garamond:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --inv-bg: #fffef8;
+        --inv-text: #2b2b2b;
+        --inv-heading: #1f2a44;
+        --inv-accent: #b08d57;
+        --inv-accent-contrast: #fffef8;
+        --inv-muted: #6b6b6b;
+        --inv-line: #d8d3c4;
+        --inv-panel: #f5f1e6;
+        --inv-radius: 0px;
+        --inv-body-font: "EB Garamond", serif;
+        --inv-display-font: "Playfair Display", serif;
+        --inv-accent-font: "Playfair Display", serif;
+        --inv-names-size: 3.2rem;
+      }
+
+      :global(.invitation) {
+        border: 1px solid var(--inv-accent);
+        outline: 1px solid var(--inv-accent);
+        outline-offset: 6px;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      :global(.hero__eyebrow) {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        letter-spacing: 0.35em;
+      }
+
+      :global(.hero__names) {
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      :global(.hero__amp) {
+        font-style: italic;
+      }
+
+      :global(.venue),
+      :global(.rsvp) {
+        border-color: var(--inv-accent);
+      }
+    </style>
+  </head>
+  <body>
+    <Invitation eyebrow="Tenemos el honor de invitarte a nuestra boda" />
+  </body>
+</html>

@@ -1,0 +1,103 @@
+---
+import "../styles/global.css";
+import { invitation as inv } from "../data/invitation";
+
+interface Props {
+  eyebrow?: string;
+}
+
+const { eyebrow = "Nos casamos" } = Astro.props;
+---
+
+<div class="invitation">
+  <slot name="decoration" />
+  <section class="hero">
+    <p class="hero__eyebrow">{eyebrow}</p>
+    <h1 class="hero__names">
+      {inv.couple.bride}
+      <span class="hero__amp">&amp;</span>
+      {inv.couple.groom}
+    </h1>
+    <p class="hero__date">{inv.date.weekday}, {inv.date.display}</p>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section">
+    <h2 class="section__title">Itinerario</h2>
+    <ul class="schedule">
+      {inv.schedule.map((item) => (
+        <li class="schedule__item">
+          <time>{item.time}</time>
+          <strong>{item.title}</strong>
+          <span>{item.place}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section">
+    <h2 class="section__title">Lugares</h2>
+    <div class="venues">
+      <div class="venue">
+        <h3>Ceremonia</h3>
+        <p>{inv.venues.ceremony.name}<br />{inv.venues.ceremony.address}</p>
+        <a href={inv.venues.ceremony.mapUrl} target="_blank" rel="noopener">Ver en mapa</a>
+      </div>
+      <div class="venue">
+        <h3>Recepción</h3>
+        <p>{inv.venues.reception.name}<br />{inv.venues.reception.address}</p>
+        <a href={inv.venues.reception.mapUrl} target="_blank" rel="noopener">Ver en mapa</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section">
+    <h2 class="section__title">Código de vestimenta</h2>
+    <span class="pill">{inv.dressCode}</span>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section gifts">
+    <h2 class="section__title">Mesa de regalos</h2>
+    <p>{inv.gifts.note}</p>
+    <a class="pill" href={inv.gifts.linkUrl}>{inv.gifts.linkLabel}</a>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section rsvp">
+    <h2 class="section__title">Confirma tu asistencia</h2>
+    <p>Antes del {inv.rsvpDeadline}</p>
+    <form action={inv.rsvp.formAction} method="POST">
+      <label>
+        Nombre completo
+        <input type="text" name="name" required />
+      </label>
+      <label>
+        ¿Asistirás?
+        <select name="attendance" required>
+          <option value="">Selecciona una opción</option>
+          <option value="si">Sí, con gusto</option>
+          <option value="no">No podré asistir</option>
+        </select>
+      </label>
+      <label>
+        Número de acompañantes
+        <input type="number" name="guests" min="0" value="0" />
+      </label>
+      <label>
+        Mensaje para los novios (opcional)
+        <textarea name="message" rows="3"></textarea>
+      </label>
+      <button type="submit">Enviar confirmación</button>
+    </form>
+  </section>
+
+  <p class="footer-note">Con cariño, {inv.couple.bride} &amp; {inv.couple.groom}</p>
+</div>
