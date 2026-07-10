@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://irmamatrimonio2026-jpg.github.io/invitation-irm-web/sitemap-index.xml

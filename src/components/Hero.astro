@@ -1,0 +1,83 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../assets/hero/hero.jpg";
+import { wedding } from "../data/wedding";
+---
+
+<section id="top" class="relative flex h-[100svh] min-h-[560px] w-full items-end overflow-hidden">
+  <Image
+    src={heroImage}
+    alt=""
+    widths={[480, 800, 1200, 1600]}
+    sizes="100vw"
+    format="webp"
+    quality={78}
+    class="absolute inset-0 -z-10 h-full w-full object-cover"
+    loading="eager"
+    fetchpriority="high"
+  />
+  <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/25 to-black/10"></div>
+
+  <div class="mx-auto w-full max-w-6xl px-6 pb-20 pt-32 text-center text-paper md:px-10 md:pb-28">
+    <p class="animate-fade-in font-sans text-xs tracking-[0.4em] uppercase opacity-90">
+      {wedding.hero.eyebrow}
+    </p>
+    <h1 class="mt-5 font-display text-6xl leading-[0.95] tracking-tight sm:text-7xl md:text-8xl">
+      <span class="animate-fade-up block [animation-delay:150ms] [animation-fill-mode:backwards]">
+        {wedding.couple.bride}
+      </span>
+      <span
+        class="animate-fade-up my-1 block font-display text-3xl italic text-accent-soft sm:text-4xl [animation-delay:350ms] [animation-fill-mode:backwards]"
+      >
+        &amp;
+      </span>
+      <span class="animate-fade-up block [animation-delay:550ms] [animation-fill-mode:backwards]">
+        {wedding.couple.groom}
+      </span>
+    </h1>
+    <p
+      class="animate-fade-up mx-auto mt-6 max-w-sm text-sm tracking-wide opacity-90 [animation-delay:750ms] [animation-fill-mode:backwards]"
+    >
+      {wedding.hero.tagline}
+    </p>
+    <p
+      class="animate-fade-up mt-8 font-display text-lg tracking-widest [animation-delay:900ms] [animation-fill-mode:backwards]"
+    >
+      {wedding.date.weekday}, {wedding.date.display}
+    </p>
+  </div>
+
+  <a
+    href="#historia"
+    class="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-paper/80 sm:flex"
+    aria-label="Bajar a la siguiente sección"
+  >
+    <span class="h-10 w-px bg-paper/60 scroll-cue"></span>
+  </a>
+</section>
+
+<style>
+  .scroll-cue {
+    animation: scroll-cue 1.8s ease-in-out infinite;
+    transform-origin: top;
+  }
+  @keyframes scroll-cue {
+    0% {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+    40% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scaleY(1) translateY(14px);
+      opacity: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-cue {
+      animation: none;
+    }
+  }
+</style>

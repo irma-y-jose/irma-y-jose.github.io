@@ -1,0 +1,70 @@
+---
+import { wedding } from "../data/wedding";
+import { withBase } from "../lib/withBase";
+
+const audioSrc = withBase(wedding.music.src);
+---
+
+<div class="fixed bottom-5 right-5 z-40">
+  <button
+    type="button"
+    id="music-toggle"
+    aria-pressed="false"
+    aria-label={`Reproducir música: ${wedding.music.title}`}
+    class="group grid h-12 w-12 place-items-center rounded-full border border-line bg-paper/90 shadow-md backdrop-blur transition-transform hover:scale-105"
+  >
+    <span class="record" aria-hidden="true">
+      <span class="record__hole"></span>
+    </span>
+  </button>
+  <audio id="bg-audio" src={audioSrc} loop preload="none"></audio>
+</div>
+
+<style>
+  .record {
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: var(--color-ink);
+    position: relative;
+    transition: transform 0.6s linear;
+  }
+  .record__hole {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--color-paper);
+  }
+  #music-toggle[aria-pressed="true"] .record {
+    animation: spin 4s linear infinite;
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<script>
+  const button = document.getElementById("music-toggle") as HTMLButtonElement;
+  const audio = document.getElementById("bg-audio") as HTMLAudioElement;
+
+  button.addEventListener("click", async () => {
+    const playing = button.getAttribute("aria-pressed") === "true";
+    try {
+      if (playing) {
+        audio.pause();
+        button.setAttribute("aria-pressed", "false");
+      } else {
+        await audio.play();
+        button.setAttribute("aria-pressed", "true");
+      }
+    } catch {
+      // El navegador bloqueó la reproducción automática; el usuario puede reintentar con otro clic.
+    }
+  });
+</script>

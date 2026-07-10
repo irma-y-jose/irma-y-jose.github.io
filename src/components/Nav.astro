@@ -1,0 +1,156 @@
+---
+import { wedding } from "../data/wedding";
+
+const links = [
+  { href: "#historia", label: "Historia" },
+  { href: "#evento", label: "Evento" },
+  { href: "#galeria", label: "Galería" },
+  { href: "#vestimenta", label: "Dress code" },
+  { href: "#ubicacion", label: "Ubicación" },
+  { href: "#regalos", label: "Regalos" },
+  { href: "#rsvp", label: "RSVP" },
+];
+---
+
+<header
+  id="site-nav"
+  class="fixed inset-x-0 top-0 z-40 transition-colors duration-500"
+  data-scrolled="false"
+>
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-10">
+    <a href="#top" class="font-display text-lg tracking-wide" id="nav-logo">
+      {wedding.couple.bride[0]}&amp;{wedding.couple.groom[0]}
+    </a>
+
+    <nav class="hidden md:block">
+      <ul class="flex items-center gap-8 text-sm tracking-wide" id="nav-links">
+        {links.map((link) => (
+          <li>
+            <a href={link.href} class="nav-link transition-colors duration-300">
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <button
+      id="menu-toggle"
+      type="button"
+      class="grid h-9 w-9 place-items-center md:hidden"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <span class="menu-icon"></span>
+    </button>
+  </div>
+
+  <nav
+    id="mobile-menu"
+    class="md:hidden max-h-0 overflow-hidden bg-paper/95 backdrop-blur transition-[max-height] duration-500 ease-in-out"
+  >
+    <ul class="flex flex-col gap-1 px-6 pb-6 pt-2 text-base">
+      {links.map((link) => (
+        <li>
+          <a href={link.href} class="mobile-nav-link block py-2 tracking-wide">
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  #site-nav[data-scrolled="false"] #nav-logo,
+  #site-nav[data-scrolled="false"] .nav-link {
+    color: #faf6f0;
+  }
+
+  #site-nav[data-scrolled="true"] {
+    background-color: color-mix(in srgb, var(--color-paper) 92%, transparent);
+    box-shadow: 0 1px 0 var(--color-line);
+    backdrop-filter: blur(8px);
+  }
+
+  #site-nav[data-scrolled="true"] #nav-logo,
+  #site-nav[data-scrolled="true"] .nav-link {
+    color: var(--color-ink);
+  }
+
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: -4px;
+    height: 1px;
+    background: currentColor;
+    transition: right 0.35s ease;
+  }
+  .nav-link:hover::after {
+    right: 0;
+  }
+
+  .menu-icon,
+  .menu-icon::before,
+  .menu-icon::after {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  #site-nav[data-scrolled="false"] .menu-icon,
+  #site-nav[data-scrolled="false"] .menu-icon::before,
+  #site-nav[data-scrolled="false"] .menu-icon::after {
+    background: #faf6f0;
+  }
+  .menu-icon {
+    position: relative;
+  }
+  .menu-icon::before {
+    position: absolute;
+    top: -7px;
+  }
+  .menu-icon::after {
+    position: absolute;
+    top: 7px;
+  }
+  #menu-toggle[aria-expanded="true"] .menu-icon {
+    background: transparent;
+  }
+  #menu-toggle[aria-expanded="true"] .menu-icon::before {
+    transform: translateY(7px) rotate(45deg);
+  }
+  #menu-toggle[aria-expanded="true"] .menu-icon::after {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+</style>
+
+<script>
+  const nav = document.getElementById("site-nav")!;
+  const onScroll = () => {
+    nav.dataset.scrolled = window.scrollY > 40 ? "true" : "false";
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  const toggle = document.getElementById("menu-toggle") as HTMLButtonElement;
+  const menu = document.getElementById("mobile-menu")!;
+  let open = false;
+
+  function setOpen(next: boolean) {
+    open = next;
+    toggle.setAttribute("aria-expanded", String(open));
+    menu.style.maxHeight = open ? `${menu.scrollHeight}px` : "0px";
+    nav.dataset.scrolled = open ? "true" : nav.dataset.scrolled;
+  }
+
+  toggle.addEventListener("click", () => setOpen(!open));
+  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
+</script>
