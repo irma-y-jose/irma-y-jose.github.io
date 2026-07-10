@@ -35,21 +35,6 @@ import Invitation from "../components/Invitation.astro";
           radial-gradient(circle at 90% 90%, #eee0cb 0, transparent 40%);
       }
 
-      :global(.divider) {
-        position: relative;
-        border-top-style: dashed;
-      }
-      :global(.divider::after) {
-        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M2 18 C2 8 8 2 18 2 C18 12 12 18 2 18 Z' fill='%238a9a5b'/%3E%3C/svg%3E");
-        position: absolute;
-        top: -0.7rem;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--inv-bg);
-        padding: 0 0.5rem;
-        line-height: 0;
-      }
-
       :global(.hero__amp) {
         font-family: "Caveat", cursive;
       }
@@ -57,6 +42,17 @@ import Invitation from "../components/Invitation.astro";
       :global(.venue) {
         background: var(--inv-panel);
         border-color: transparent;
+      }
+
+      :global(.page--gallery::after),
+      :global(.page--rsvp::after) {
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M2 18 C2 8 8 2 18 2 C18 12 12 18 2 18 Z' fill='%238a9a5b'/%3E%3C/svg%3E");
+        opacity: 0.8;
+      }
+
+      :global(.couple-photo) {
+        border: 6px solid #fff;
+        box-shadow: 0 6px 20px rgba(124, 74, 52, 0.2);
       }
     </style>
   </head>

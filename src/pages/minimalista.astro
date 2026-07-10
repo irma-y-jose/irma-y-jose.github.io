@@ -28,11 +28,6 @@ import Invitation from "../components/Invitation.astro";
         --inv-display-font: "Inter", sans-serif;
         --inv-accent-font: "Inter", sans-serif;
         --inv-names-size: 2.75rem;
-        --inv-page-padding: 5rem 1.5rem 6rem;
-        --inv-hero-padding: 2rem 1rem 2rem;
-        --inv-section-margin: 4rem 0;
-        --inv-divider-margin: 3.5rem auto;
-        --inv-divider-width: 32px;
       }
 
       :global(.hero__names) {
@@ -40,7 +35,7 @@ import Invitation from "../components/Invitation.astro";
         letter-spacing: 0.02em;
       }
 
-      :global(.hero__eyebrow) {
+      :global(.page-eyebrow) {
         font-weight: 500;
         letter-spacing: 0.35em;
       }
@@ -65,12 +60,15 @@ import Invitation from "../components/Invitation.astro";
         border-radius: 0;
       }
 
-      :global(.rsvp) {
+      :global(.couple-photo) {
+        border-radius: 0;
+      }
+
+      :global(.rsvp-form) {
         border-radius: 0;
         background: transparent;
         border-top: 1px solid var(--inv-line);
         border-bottom: 1px solid var(--inv-line);
-        padding: 3rem 0;
       }
     </style>
   </head>

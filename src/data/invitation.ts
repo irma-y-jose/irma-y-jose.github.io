@@ -11,6 +11,15 @@ export const invitation = {
   },
   rsvpDeadline: "1 de octubre de 2026",
   dressCode: "Formal / Etiqueta rigurosa",
+  loveMessage:
+    "Después de reír, viajar y crecer juntos, decidimos que la próxima aventura sería para toda la vida. Gracias por acompañarnos en este día tan especial.",
+  couplePhoto: "https://picsum.photos/seed/boda-couple/700/900",
+  gallery: [
+    "https://picsum.photos/seed/boda-1/600/800",
+    "https://picsum.photos/seed/boda-2/600/800",
+    "https://picsum.photos/seed/boda-3/600/800",
+    "https://picsum.photos/seed/boda-4/600/800",
+  ],
   schedule: [
     { time: "5:00 pm", title: "Ceremonia religiosa", place: "Parroquia Santa Teresa" },
     { time: "6:30 pm", title: "Cóctel de bienvenida", place: "Jardines Hacienda El Roble" },

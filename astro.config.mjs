@@ -5,4 +5,5 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://irmamatrimonio2026-jpg.github.io',
   base: '/invitation-irm-web',
+  devToolbar: { enabled: false },
 });

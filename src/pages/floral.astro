@@ -35,19 +35,15 @@ import Invitation from "../components/Invitation.astro";
         font-weight: 700;
       }
 
-      :global(.hero) {
-        position: relative;
-      }
-
-      :global(.hero::before),
-      :global(.hero::after) {
+      :global(.page--love::before),
+      :global(.page--love::after) {
         content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 36 36'%3E%3Cg fill='%23d98ba0'%3E%3Ccircle cx='18' cy='10' r='6'/%3E%3Ccircle cx='10' cy='18' r='6'/%3E%3Ccircle cx='26' cy='18' r='6'/%3E%3Ccircle cx='14' cy='26' r='6'/%3E%3Ccircle cx='22' cy='26' r='6'/%3E%3C/g%3E%3Ccircle cx='18' cy='18' r='5' fill='%23f4d35e'/%3E%3C/svg%3E");
         position: absolute;
-        top: 0;
+        top: 1.5rem;
         opacity: 0.85;
       }
-      :global(.hero::before) { left: 0.5rem; }
-      :global(.hero::after) { right: 0.5rem; transform: scaleX(-1); }
+      :global(.page--love::before) { left: 1rem; }
+      :global(.page--love::after) { right: 1rem; transform: scaleX(-1); }
 
       :global(.venue) {
         background: var(--inv-panel);
@@ -56,6 +52,16 @@ import Invitation from "../components/Invitation.astro";
 
       :global(.pill) {
         background: var(--inv-panel);
+      }
+
+      :global(.couple-photo) {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+      }
+
+      :global(.gallery__img) {
+        border-radius: 999px 999px 12px 12px;
       }
     </style>
   </head>

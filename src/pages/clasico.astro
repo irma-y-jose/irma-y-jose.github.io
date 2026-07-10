@@ -30,15 +30,12 @@ import Invitation from "../components/Invitation.astro";
         --inv-names-size: 3.2rem;
       }
 
-      :global(.invitation) {
-        border: 1px solid var(--inv-accent);
+      :global(.page) {
         outline: 1px solid var(--inv-accent);
-        outline-offset: 6px;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        outline-offset: -14px;
       }
 
-      :global(.hero__eyebrow) {
+      :global(.page-eyebrow) {
         font-family: "Playfair Display", serif;
         font-style: italic;
         letter-spacing: 0.35em;
@@ -54,8 +51,14 @@ import Invitation from "../components/Invitation.astro";
       }
 
       :global(.venue),
-      :global(.rsvp) {
+      :global(.rsvp-form) {
         border-color: var(--inv-accent);
+      }
+
+      :global(.couple-photo) {
+        border: 1px solid var(--inv-accent);
+        outline: 1px solid var(--inv-accent);
+        outline-offset: 4px;
       }
     </style>
   </head>
