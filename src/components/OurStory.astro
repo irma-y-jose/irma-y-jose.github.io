@@ -33,7 +33,7 @@ import { wedding } from "../data/wedding";
             <span class="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-accent"></span>
             <span class="font-display text-sm tracking-widest text-accent">{m.year}</span>
             <h3 class="mt-1 font-display text-xl text-ink">{m.title}</h3>
-            <p class="mt-2 max-w-md text-sm leading-relaxed text-ink-soft">{m.text}</p>
+            {m.text && <p class="mt-2 max-w-md text-sm leading-relaxed text-ink-soft">{m.text}</p>}
           </li>
         ))}
       </ol>

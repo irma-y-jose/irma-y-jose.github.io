@@ -1,7 +1,7 @@
 ---
 import { wedding } from "../data/wedding";
 
-const tabs = [wedding.events.ceremony, wedding.events.reception];
+const event = wedding.events.main;
 ---
 
 <section id="ubicacion" class="mx-auto max-w-4xl px-6 py-24 md:px-10 md:py-32">
@@ -12,52 +12,13 @@ const tabs = [wedding.events.ceremony, wedding.events.reception];
     Ubicación
   </h2>
 
-  <div class="mt-10 flex justify-center gap-2" data-reveal>
-    {tabs.map((tab, i) => (
-      <button
-        type="button"
-        class="map-tab rounded-full border border-line px-5 py-2 text-sm tracking-wide transition-colors"
-        data-index={i}
-        data-active={i === 0 ? "true" : "false"}
-      >
-        {tab.title}
-      </button>
-    ))}
-  </div>
-
-  <div class="mt-8 overflow-hidden rounded-sm border border-line shadow-sm" data-reveal>
-    {tabs.map((tab, i) => (
-      <iframe
-        class="map-frame aspect-video w-full"
-        style={i === 0 ? "" : "display:none"}
-        data-index={i}
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        src={`https://www.google.com/maps?q=${encodeURIComponent(tab.mapQuery)}&z=16&output=embed`}
-        title={`Mapa: ${tab.name}`}
-      ></iframe>
-    ))}
+  <div class="mt-10 overflow-hidden rounded-sm border border-line shadow-sm" data-reveal>
+    <iframe
+      class="aspect-video w-full"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      src={`https://www.google.com/maps?q=${encodeURIComponent(event.mapQuery)}&z=16&output=embed`}
+      title={`Mapa: ${event.name}`}
+    ></iframe>
   </div>
 </section>
-
-<style>
-  .map-tab[data-active="true"] {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-paper);
-  }
-</style>
-
-<script>
-  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>(".map-tab"));
-  const frames = Array.from(document.querySelectorAll<HTMLIFrameElement>(".map-frame"));
-
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      tabs.forEach((t) => (t.dataset.active = String(t === tab)));
-      frames.forEach((f) => {
-        f.style.display = f.dataset.index === tab.dataset.index ? "" : "none";
-      });
-    });
-  });
-</script>
