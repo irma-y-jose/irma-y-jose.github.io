@@ -3,7 +3,7 @@ export const wedding = {
   seo: {
     title: "Irma & Jose — 11 de septiembre de 2026",
     description:
-      "Acompáñanos a celebrar nuestra boda el 11 de septiembre de 2026 en Bogotá. Encuentra itinerario, ubicación, dress code y confirma tu asistencia.",
+      "Acompáñanos a celebrar nuestra boda el 11 de septiembre de 2026 en Bogotá. Encuentra itinerario, ubicación, vestimenta y confirma tu asistencia.",
     ogImage: "/og-cover.jpg",
   },
   couple: {
@@ -17,7 +17,7 @@ export const wedding = {
   },
   hero: {
     eyebrow: "Nos casamos",
-    tagline: "Después de todo, siempre fuimos nosotros.",
+    tagline: "",
   },
   story: {
     eyebrow: "Nuestra historia",
@@ -30,18 +30,18 @@ export const wedding = {
       },
       {
         year: "2025",
-        title: "Empezamos a conocernos con un propósito, servirle plenamente al Señor..",
+        title: "Empezamos a conocernos con un propósito, servirle plenamente al Señor.",
         text: "En este año decidimos pasar de ser amigos a comprometernos en noviazgo.",
       },
       {
         year: "2026",
-        title: "En un propósito decidimos pasar a una nueva etapa de nuestras vidas, nos unimos para avanzar a un compromiso mayor..",
-        text: "",
+        title: "En un propósito decidimos pasar a una nueva etapa de nuestras vidas.",
+        text: "Nos unimos para avanzar a un compromiso mayor.",
       },
       {
         year: "2026",
         title: "El sí definitivo",
-        text: "Y ahora rodeado de quienes más queremos damos el siguiente paso.",
+        text: "Y ahora, rodeado de quienes más queremos, damos el siguiente paso.",
       },
     ],
   },
@@ -56,7 +56,7 @@ export const wedding = {
   },
   dressCode: {
     title: "Formal / Etiqueta rigurosa",
-    note: "Evitemos el blanco y azul Rey, reservados para los novios. Los tonos rosas y beige son bienvenidos.",
+    note: "Evitemos el blanco y azul Rey, reservados para los novios. Los tonos rosas, beige y verde suave son bienvenidos.",
   },
   gifts: {
     note: "Tu presencia es el regalo más grande que podemos recibir. Si deseas obsequiarnos algo, la mejor forma de acompañarnos en este nuevo comienzo es con un sobre en efectivo, que podrás dejar en el lugar dispuesto para ello durante la recepción.",

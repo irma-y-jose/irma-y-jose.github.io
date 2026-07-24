@@ -35,11 +35,13 @@ import { wedding } from "../data/wedding";
         {wedding.couple.groom}
       </span>
     </h1>
-    <p
-      class="animate-fade-up mx-auto mt-6 max-w-sm text-sm tracking-wide opacity-90 [animation-delay:750ms] [animation-fill-mode:backwards]"
-    >
-      {wedding.hero.tagline}
-    </p>
+    {wedding.hero.tagline && (
+      <p
+        class="animate-fade-up mx-auto mt-6 max-w-sm text-sm tracking-wide opacity-90 [animation-delay:750ms] [animation-fill-mode:backwards]"
+      >
+        {wedding.hero.tagline}
+      </p>
+    )}
     <p
       class="animate-fade-up mt-8 font-display text-lg tracking-widest [animation-delay:900ms] [animation-fill-mode:backwards]"
     >
