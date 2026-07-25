@@ -15,21 +15,12 @@ const event = wedding.events.main;
 
     <div class="mt-16 mx-auto max-w-md">
       <div
-        class="group rounded-sm border border-line bg-paper p-8 text-center transition-shadow duration-500 hover:shadow-xl sm:p-10"
+        class="rounded-sm border border-line bg-paper p-8 text-center transition-shadow duration-500 hover:shadow-xl sm:p-10"
         data-reveal
       >
         <span class="font-display text-sm tracking-widest text-accent">{event.time}</span>
         <h3 class="mt-2 font-display text-2xl text-ink sm:text-3xl">{event.title}</h3>
         <p class="mt-4 text-base text-ink">{event.name}</p>
-        {event.address && <p class="text-sm text-ink-soft">{event.address}</p>}
-        <a
-          href={`https://maps.google.com/?q=${encodeURIComponent(event.mapQuery)}`}
-          target="_blank"
-          rel="noopener"
-          class="mt-6 inline-flex items-center gap-2 text-sm tracking-wide text-accent underline-offset-4 transition-colors group-hover:underline"
-        >
-          Ver en el mapa <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
-        </a>
       </div>
     </div>
   </div>

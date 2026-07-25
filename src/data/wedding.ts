@@ -50,8 +50,6 @@ export const wedding = {
       title: "Ceremonia y Recepción",
       time: "6:30 pm",
       name: "Iglesia Internacional Ciudad de Dios",
-      address: "Pendiente dirección",
-      mapQuery: "Iglesia Internacional Ciudad de Dios",
     },
   },
   dressCode: {
