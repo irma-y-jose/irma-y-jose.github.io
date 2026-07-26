@@ -3,7 +3,7 @@ export const wedding = {
   seo: {
     title: "Irma & Jose — 11 de septiembre de 2026",
     description:
-      "Acompáñanos a celebrar nuestra boda el 11 de septiembre de 2026 en Tumeremo, Venezuela. Encuentra itinerario, vestimenta y confirma tu asistencia.",
+      "¡Nos casamos! Entra para ver los detalles y confirmar tu asistencia.",
     ogImage: "/og-cover.jpg",
   },
   couple: {
