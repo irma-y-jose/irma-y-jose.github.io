@@ -7,8 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://irmamatrimonio2026-jpg.github.io',
-  base: '/invitation-irm-web',
+  site: 'https://irma-y-jose.github.io',
   devToolbar: { enabled: false },
 
   vite: {
