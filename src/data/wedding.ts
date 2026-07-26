@@ -61,8 +61,8 @@ export const wedding = {
   },
   rsvpDeadline: "4 de septiembre de 2026",
   music: {
-    src: "audio/canon-in-d.mp3",
-    title: "Canon en Re — Pachelbel",
-    credit: "Interpretado por la U.S. Air Force Band (dominio público)",
+    src: "audio/wedding-music.mp3",
+    title: "Wedding Music",
+    credit: "Paul Yudin",
   },
 } as const;
