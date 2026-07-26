@@ -10,12 +10,19 @@ import { wedding } from "../data/wedding";
   <p class="mt-4 text-sm text-ink-soft" data-reveal>Antes del {wedding.rsvpDeadline}</p>
 
   <div class="relative mt-10" data-reveal>
-    <form id="rsvp-form" class="grid gap-5 text-left transition-opacity duration-500" novalidate>
+    <form
+      id="rsvp-form"
+      class="grid gap-5 text-left transition-opacity duration-500"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSc8z2kRsfuAQ9-htBYVnifan1WAC8u2rjL9jgHxlSVJ5OTw7Q/formResponse"
+      method="POST"
+      target="hidden_iframe"
+      novalidate
+    >
       <label class="grid gap-1.5 text-sm text-ink-soft">
         Nombre completo
         <input
           type="text"
-          name="name"
+          name="entry.559352220"
           required
           class="rounded-sm border border-line bg-paper px-4 py-3 text-ink outline-none transition-colors focus:border-accent"
         />
@@ -23,20 +30,20 @@ import { wedding } from "../data/wedding";
       <label class="grid gap-1.5 text-sm text-ink-soft">
         ¿Asistirás?
         <select
-          name="attendance"
+          name="entry.877086558"
           required
           class="rounded-sm border border-line bg-paper px-4 py-3 text-ink outline-none transition-colors focus:border-accent"
         >
           <option value="">Selecciona una opción</option>
-          <option value="si">Sí, con gusto</option>
-          <option value="no">No podré asistir</option>
+          <option value="Sí, con gusto">Sí, con gusto</option>
+          <option value="No podré asistir">No podré asistir</option>
         </select>
       </label>
       <label class="grid gap-1.5 text-sm text-ink-soft">
         Número de acompañantes
         <input
           type="number"
-          name="guests"
+          name="entry.924523986"
           min="0"
           value="0"
           class="rounded-sm border border-line bg-paper px-4 py-3 text-ink outline-none transition-colors focus:border-accent"
@@ -45,7 +52,7 @@ import { wedding } from "../data/wedding";
       <label class="grid gap-1.5 text-sm text-ink-soft">
         Mensaje para los novios (opcional)
         <textarea
-          name="message"
+          name="entry.1408660606"
           rows="3"
           class="rounded-sm border border-line bg-paper px-4 py-3 text-ink outline-none transition-colors focus:border-accent"
         ></textarea>
@@ -56,10 +63,8 @@ import { wedding } from "../data/wedding";
       >
         Enviar confirmación
       </button>
-      <p class="text-xs text-ink-soft/70">
-        * Esta confirmación es una simulación de prueba (no se envía a ningún servidor todavía).
-      </p>
     </form>
+    <iframe name="hidden_iframe" class="hidden" title="Envío de confirmación"></iframe>
 
     <div
       id="rsvp-success"
@@ -79,20 +84,23 @@ import { wedding } from "../data/wedding";
   const successDetail = document.getElementById("rsvp-success-detail")!;
 
   form.addEventListener("submit", (e) => {
-    e.preventDefault();
     if (!form.checkValidity()) {
+      e.preventDefault();
       form.reportValidity();
       return;
     }
 
+    // No preventDefault: el formulario se envía de verdad al iframe oculto,
+    // que apunta al Google Form. La UI de éxito se muestra en paralelo.
     const data = new FormData(form);
-    const name = String(data.get("name") || "").split(" ")[0];
-    const attendance = data.get("attendance");
-    const guests = data.get("guests");
+    const name = String(data.get("entry.559352220") || "").split(" ")[0];
+    const attendance = data.get("entry.877086558");
+    const guests = data.get("entry.924523986");
 
-    successName.textContent = attendance === "si" ? `¡Nos vemos ahí, ${name}!` : `Gracias, ${name}.`;
+    successName.textContent =
+      attendance === "Sí, con gusto" ? `¡Nos vemos ahí, ${name}!` : `Gracias, ${name}.`;
     successDetail.textContent =
-      attendance === "si"
+      attendance === "Sí, con gusto"
         ? `Confirmado con ${guests} acompañante(s).`
         : "Lamentamos que no puedas acompañarnos.";
 
