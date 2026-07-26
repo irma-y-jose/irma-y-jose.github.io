@@ -53,18 +53,38 @@ const audioSrc = withBase(wedding.music.src);
   const button = document.getElementById("music-toggle") as HTMLButtonElement;
   const audio = document.getElementById("bg-audio") as HTMLAudioElement;
 
-  button.addEventListener("click", async () => {
-    const playing = button.getAttribute("aria-pressed") === "true";
+  async function playMusic() {
     try {
-      if (playing) {
-        audio.pause();
-        button.setAttribute("aria-pressed", "false");
-      } else {
-        await audio.play();
-        button.setAttribute("aria-pressed", "true");
-      }
+      await audio.play();
+      button.setAttribute("aria-pressed", "true");
     } catch {
-      // El navegador bloqueó la reproducción automática; el usuario puede reintentar con otro clic.
+      // El navegador bloqueó la reproducción; el usuario puede reintentar con el botón.
+    }
+  }
+
+  function pauseMusic() {
+    audio.pause();
+    button.setAttribute("aria-pressed", "false");
+  }
+
+  button.addEventListener("click", () => {
+    autoStartController.abort();
+    if (audio.paused) {
+      playMusic();
+    } else {
+      pauseMusic();
     }
   });
+
+  // Los navegadores bloquean el audio con sonido hasta que haya una interacción
+  // real del usuario. Arrancamos la música en el primer toque/clic/tecla en
+  // cualquier parte de la página (fuera del botón, que ya tiene su propio manejo).
+  const autoStartController = new AbortController();
+  function autoStart(e: Event) {
+    if (e.target instanceof Node && button.contains(e.target)) return;
+    playMusic();
+    autoStartController.abort();
+  }
+  window.addEventListener("pointerdown", autoStart, { signal: autoStartController.signal });
+  window.addEventListener("keydown", autoStart, { signal: autoStartController.signal });
 </script>
