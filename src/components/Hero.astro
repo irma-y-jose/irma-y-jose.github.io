@@ -1,25 +1,35 @@
 ---
 import { Image } from "astro:assets";
-import heroImage from "../assets/hero/hero.jpg";
+import heroImage from "../assets/hero/hero.png";
+import heroImageMobile from "../assets/hero/hero-mobile.png";
 import { wedding } from "../data/wedding";
 ---
 
-<section id="top" class="relative flex h-[100svh] min-h-[560px] w-full items-end overflow-hidden">
+<section id="top" class="relative flex h-[100svh] min-h-[560px] w-full items-center overflow-hidden">
   <Image
-    src={heroImage}
+    src={heroImageMobile}
     alt=""
-    widths={[480, 800, 1200, 1600]}
+    widths={[600, 800, 1024]}
     sizes="100vw"
     format="webp"
     quality={78}
-    class="absolute inset-0 -z-10 h-full w-full object-cover"
+    class="absolute inset-0 -z-10 h-full w-full object-cover md:hidden"
     loading="eager"
     fetchpriority="high"
   />
-  <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/75 via-black/45 to-black/30"></div>
-
-  <div class="mx-auto w-full max-w-6xl px-6 pb-20 pt-32 text-center text-paper md:px-10 md:pb-28">
-    <p class="animate-fade-in font-sans text-xs tracking-[0.4em] uppercase opacity-90">
+  <Image
+    src={heroImage}
+    alt=""
+    widths={[800, 1200, 1536]}
+    sizes="100vw"
+    format="webp"
+    quality={78}
+    class="absolute inset-0 -z-10 hidden h-full w-full object-cover md:block"
+    loading="eager"
+    fetchpriority="high"
+  />
+  <div class="mx-auto w-full max-w-6xl px-6 py-24 text-center text-ink md:px-10">
+    <p class="animate-fade-in font-sans text-xs tracking-[0.4em] uppercase text-ink-soft">
       {wedding.hero.eyebrow}
     </p>
     <h1 class="mt-5 font-display text-6xl leading-[0.95] tracking-tight sm:text-7xl md:text-8xl">
@@ -27,7 +37,7 @@ import { wedding } from "../data/wedding";
         {wedding.couple.bride}
       </span>
       <span
-        class="animate-fade-up my-1 block font-display text-3xl italic text-accent-soft sm:text-4xl [animation-delay:350ms] [animation-fill-mode:backwards]"
+        class="animate-fade-up my-1 block font-display text-3xl italic text-accent sm:text-4xl [animation-delay:350ms] [animation-fill-mode:backwards]"
       >
         &amp;
       </span>
@@ -37,7 +47,7 @@ import { wedding } from "../data/wedding";
     </h1>
     {wedding.hero.tagline && (
       <p
-        class="animate-fade-up mx-auto mt-6 max-w-sm text-sm tracking-wide opacity-90 [animation-delay:750ms] [animation-fill-mode:backwards]"
+        class="animate-fade-up mx-auto mt-6 max-w-sm text-sm tracking-wide text-ink-soft [animation-delay:750ms] [animation-fill-mode:backwards]"
       >
         {wedding.hero.tagline}
       </p>
@@ -51,10 +61,10 @@ import { wedding } from "../data/wedding";
 
   <a
     href="#historia"
-    class="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-paper/80 sm:flex"
+    class="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-ink/60 sm:flex"
     aria-label="Bajar a la siguiente sección"
   >
-    <span class="h-10 w-px bg-paper/60 scroll-cue"></span>
+    <span class="h-10 w-px bg-ink/40 scroll-cue"></span>
   </a>
 </section>
 

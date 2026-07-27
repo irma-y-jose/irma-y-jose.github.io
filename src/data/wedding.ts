@@ -58,7 +58,7 @@ export const wedding = {
   },
   adultsOnly: {
     title: "Celebración solo para adultos",
-    note: "Aunque amamos a los peques, hemos decidido que esta celebración sea solo para adultos. Gracias por entenderlo y por ayudarnos a organizar el cuidado de los más pequeños en casa.",
+    note: "Aunque amamos a los pequeños, hemos decidido que esta celebración sea solo para adultos. Gracias por entenderlo y por ayudarnos a organizar su cuidado en casa.",
   },
   gifts: {
     note: "Tu presencia es el regalo más grande que podemos recibir. Si deseas obsequiarnos algo, la mejor forma de acompañarnos en este nuevo comienzo es con un sobre en efectivo, que podrás dejar en el lugar dispuesto para ello durante la recepción.",
