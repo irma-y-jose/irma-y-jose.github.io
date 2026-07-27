@@ -1,4 +1,4 @@
-// Datos de prueba — reemplazar por la información real de la boda.
+// Información de la boda. Único lugar donde se editan textos y fechas.
 export const wedding = {
   seo: {
     title: "Irma & José — 11 de septiembre de 2026",
@@ -41,7 +41,7 @@ export const wedding = {
       {
         year: "2026",
         title: "El sí definitivo",
-        text: "Y ahora, rodeado de quienes más queremos, damos el siguiente paso.",
+        text: "Y ahora, rodeados de quienes más queremos, damos el siguiente paso.",
       },
     ],
   },
