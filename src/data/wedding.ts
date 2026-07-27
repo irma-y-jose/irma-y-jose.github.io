@@ -1,14 +1,14 @@
-// Datos de prueba — reemplazar por la información real de la boda.
+// Información de la boda. Único lugar donde se editan textos y fechas.
 export const wedding = {
   seo: {
-    title: "Irma & Jose — 11 de septiembre de 2026",
+    title: "Irma & José — 11 de septiembre de 2026",
     description:
       "Acompáñanos a celebrar nuestra boda el 11 de septiembre de 2026 en Tumeremo, Venezuela. Encuentra itinerario, vestimenta y confirma tu asistencia.",
     ogImage: "/og-cover.jpg",
   },
   couple: {
     bride: "Irma",
-    groom: "Jose",
+    groom: "José",
   },
   date: {
     iso: "2026-09-11T17:00:00-05:00",
@@ -41,7 +41,7 @@ export const wedding = {
       {
         year: "2026",
         title: "El sí definitivo",
-        text: "Y ahora, rodeado de quienes más queremos, damos el siguiente paso.",
+        text: "Y ahora, rodeados de quienes más queremos, damos el siguiente paso.",
       },
     ],
   },
@@ -58,7 +58,7 @@ export const wedding = {
   },
   adultsOnly: {
     title: "Celebración solo para adultos",
-    note: "Aunque amamos a los peques, hemos decidido que esta celebración sea solo para adultos. Gracias por entenderlo y por ayudarnos a organizar el cuidado de los más pequeños en casa.",
+    note: "Aunque amamos a los pequeños, hemos decidido que esta celebración sea solo para adultos. Gracias por entenderlo y por ayudarnos a organizar su cuidado en casa.",
   },
   gifts: {
     note: "Tu presencia es el regalo más grande que podemos recibir. Si deseas obsequiarnos algo, la mejor forma de acompañarnos en este nuevo comienzo es con un sobre en efectivo, que podrás dejar en el lugar dispuesto para ello durante la recepción.",
