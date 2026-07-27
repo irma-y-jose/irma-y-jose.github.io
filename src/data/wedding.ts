@@ -1,14 +1,14 @@
 // Datos de prueba — reemplazar por la información real de la boda.
 export const wedding = {
   seo: {
-    title: "Irma & Jose — 11 de septiembre de 2026",
+    title: "Irma & José — 11 de septiembre de 2026",
     description:
       "Acompáñanos a celebrar nuestra boda el 11 de septiembre de 2026 en Tumeremo, Venezuela. Encuentra itinerario, vestimenta y confirma tu asistencia.",
     ogImage: "/og-cover.jpg",
   },
   couple: {
     bride: "Irma",
-    groom: "Jose",
+    groom: "José",
   },
   date: {
     iso: "2026-09-11T17:00:00-05:00",
