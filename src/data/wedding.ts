@@ -1,7 +1,7 @@
 // Información de la boda. Único lugar donde se editan textos y fechas.
 export const wedding = {
   seo: {
-    title: "Irma & José — 11 de septiembre de 2026",
+    title: "José & Irma — 11 de septiembre de 2026",
     description:
       "Acompáñanos a celebrar nuestra boda el 11 de septiembre de 2026 en Tumeremo, Venezuela. Encuentra itinerario, vestimenta y confirma tu asistencia.",
     ogImage: "/og-cover.jpg",
